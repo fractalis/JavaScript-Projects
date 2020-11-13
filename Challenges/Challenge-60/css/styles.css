@@ -1,0 +1,9 @@
+.headline {
+    background-color: #1f1f1f;
+    color: #fff;
+}
+
+.headline:hover {
+    background-color: #8f8f8f;
+    color: #000;
+}

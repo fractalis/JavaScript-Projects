@@ -58,21 +58,13 @@ function negationOperator() {
 var counter = 0;
 
 function incrementCounter() {
-
-    // Increment counter by 1
-    counter += 1;
-
-    // Display the current value of counter to the specified element
-    document.getElementById("counter").innerHTML = "Counter: " + counter;
+    // Display the current value of counter incremented by 1 to the specified element
+    document.getElementById("counter").innerHTML = "Counter: " + counter++;
 }
 
 function decrementCounter() {
-
-    // Decrement counter by 1
-    counter -= 1;
-
-    // Display the current value of counter to the specified element
-    document.getElementById("counter").innerHTML = "Counter: " + counter;
+    // Display the current value of counter decremented by 1 to the specified element
+    document.getElementById("counter").innerHTML = "Counter: " + counter--;
 }
 
 function generateRandomNumber() {

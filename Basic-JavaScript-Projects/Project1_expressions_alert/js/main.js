@@ -33,3 +33,13 @@ document.write(playerName + "<br>"); // Write out playerName to document
 
 var baseHP = 5 * 2; // Calculate base hitpoints.
 
+function calculateBaseHp(lvl) {
+    return lvl * 4 + 5;
+}
+
+document.write(calculateBaseHp(2) + "<br>");
+
+function handleClick() {
+    var element = document.getElementById("main-btn");
+    element.style['backgroundColor'] = '#efaf1f';
+}

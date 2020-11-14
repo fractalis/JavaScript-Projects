@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Switch Statement And Canvas</title>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./js/JavaScript_1.js" defer></script>
+    </head>
+    <body>
+        <label for="warriorClass">Warrior</label>
+        <input id="warriorClass" type="radio" name="playerClass" value="warrior">
+        <label for="mageClass">Mage</label>
+        <input id="mageClass" type="radio" name="playerClass" value="mage">
+        <label for="rogueClass">Rogue</label>
+        <input type="radio" name="playerClass" value="rogue">
+        
+        <button onclick="checkPlayerClass()">Click Here To Select Class</button>
+
+        <p id="player-class-container"></p>
+
+        <div class="row">
+            <div class="column-a">
+                <button id="change-backgrounds" onclick="changeBackgrounds()">Change Backgrounds</button>
+            </div>
+
+            <div class="column-b">
+                This is a column
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column-b">
+                <canvas id="main-canvas"></canvas>
+            </div>
+
+            <div class="column-a">
+                <button onclick="drawGraphic()">Click Me To Draw A Graphic</button>
+            </div>
+        </div> 
+
+        <div class="row">
+            <div class="column-a">
+                <button onclick="drawLinearGradient()">Click Me To Draw A Linear Gradient</button>
+            </div>
+
+            <div class="column-b">
+                <canvas id="linear-gradient-canvas"></canvas>
+            </div>
+        </div>
+    </body>
+</html>

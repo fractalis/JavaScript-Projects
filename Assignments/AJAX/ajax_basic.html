@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Basic AJAX Demo</title>
+		<link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main">
+            <h2>Get The Latest Content:</h2>
+            <div class='content' id="content">
+                <input type="button" class="button" value="Get Content" id="btn_content" onclick="getContent();"/>
+            </div>
+
+            <h2>Get a Greeting</h2>
+            <div class='content' id="content-2">
+                <label>Your name:
+                    <input type="text" id="ajaxTextbox" />
+                </label>
+                <span id="ajaxButton" style="cursor: pointer; text-decoration: underline">
+                    Make a request
+                </span>
+                <p id="target-container"></p>
+            </div>
+        </div>
+        <script type="text/javascript">
+        // STEP 1: Setup the xml http request object
+        var ajax = new XMLHttpRequest();
+
+        // STEP 2: Prepare the open ajax request
+        ajax.open('GET', 'content.html');
+
+        // STEP 3: Define the ajax response callback method
+        ajax.onreadystatechange = () => {
+            if (ajax.readyState == 4) {
+                document.getElementById('content').innerHTML = ajax.responseText;
+            }
+        }
+
+        // STEP 4: Send the ajax request for data
+
+        function getContent() {
+            ajax.send();
+            document.getElementById('btn_content').style.display = 'none';    
+        }
+
+        (function() {
+            // CHALLENGE
+
+            // Declare our httpRequest object
+            var httpRequest;
+
+            // Declare an onclick handler for our Button
+            document.getElementById('ajaxButton').onclick = function() {
+
+                // Get the username from the input box
+                var userName = document.getElementById('ajaxTextbox').value;
+
+                // Make the ajax request
+                makeRequest('test.php', userName);
+            }
+
+            function makeRequest(url, userName) {
+                // Initialize our httpRequest object
+                httpRequest = new XMLHttpRequest();
+
+                // Set our onreadystatechange callback
+                httpRequest.onreadystatechange = displayContents;
+
+                // State we want to open a connection to the given URL
+                httpRequest.open('POST', url);
+
+                // Set a request header stating how our data will be encoded
+                httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                // Send our request with the data properly encoded
+                httpRequest.send('userName='+ encodeURIComponent(userName));                
+            }
+
+            function displayContents() {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    if (httpRequest.status === 200) {
+                        // Parse out the JSON from our response text
+                        var response = JSON.parse(httpRequest.responseText);
+                        document.getElementById('target-container').innerHTML = response.computedString;
+                    } else {
+                        alert("There was a problem with the request.");
+                    }
+                }
+            }
+        })();
+		</script>
+    </body>
+</html>

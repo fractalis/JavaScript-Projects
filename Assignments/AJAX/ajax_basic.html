@@ -32,7 +32,9 @@
 
         // STEP 3: Define the ajax response callback method
         ajax.onreadystatechange = () => {
+            // If we are in done state
             if (ajax.readyState == 4) {
+                // Update the contents of the element with the response text.
                 document.getElementById('content').innerHTML = ajax.responseText;
             }
         }
@@ -40,7 +42,9 @@
         // STEP 4: Send the ajax request for data
 
         function getContent() {
+            // Send the ajax request
             ajax.send();
+            // Hide the button
             document.getElementById('btn_content').style.display = 'none';    
         }
 

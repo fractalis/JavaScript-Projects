@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM Method Challenge</title>
+    </head>
+    <body>
+        <button id="btn-simulate-mouseover">Click Me to Simulate A Mouseover Event</button>
+
+        <script type="text/javascript">
+            // Dynamically create a 'p' element
+            var p = document.createElement('p');
+
+            // Set it's id and content
+            p.id = 'target-container'
+            p.innerHTML = "This was added dynamically by JavaScript.";
+
+            // Define a mouseover event handler for the 'p' element
+            p.onmouseover = (evt) => {
+                p.style.backgroundColor = "#dfefcf";
+            }
+
+            // Append the p element to the document.
+            document.body.appendChild(p);
+
+            // Get the btn
+            var btn = document.getElementById('btn-simulate-mouseover');
+
+            // Define it's onclick handler
+            btn.onclick = (evt) => {
+                // Create a new MouseEvent
+                var mouseEvent = document.createEvent("MouseEvent");
+
+                // Initialize a mouseover MouseEvent
+                mouseEvent.initMouseEvent("mouseover", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+                // Dispatch the mouseover event to the target element
+                document.getElementById('target-container').dispatchEvent(mouseEvent);
+            }
+        </script>
+    </body>
+    
+</html>

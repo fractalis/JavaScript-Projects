@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arrow Function Challenge</title>
+    </head>
+    <body>
+        <h2 id="main-header"></h2>
+        <h2 id="secondary-header"></h2>
+        <script type="text/javascript">
+            var updateHeader = function() {
+                document.getElementById("main-header").innerHTML = "This was called using a regular function.";
+            }
+            updateHeader();
+
+            var updateSecondaryHeader = () => {
+                document.getElementById("secondary-header").innerHTML = "This was called using an arrow function.";
+            }
+
+            updateSecondaryHeader();
+        </script>
+    </body>
+    
+</html>

@@ -1,0 +1,41 @@
+.long-col-a {
+    height: 900px;
+    background-color: #4f4f4f;
+    color: white;
+}
+
+.long-col-b {
+    height: 900px;
+    background-color: #2f2f2f;
+    color: white;
+}
+
+.form-popup {
+    display: none;
+    width: 300px;
+    z-index: 9;
+    padding: 10px 10px;
+    background-color: #2f2f2f;
+    color: white;
+}
+
+div.contact-form-sticky {
+    position: fixed;
+    bottom: 0px;
+    right: 50px;
+    width: 300px;
+}
+
+.button-main {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 2px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
